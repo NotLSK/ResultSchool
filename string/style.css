@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    font: normal normal 16px 'Arial', 'Verdana', sans-serif;
+    background-color: #efefef;
+}
+
+.wrapper {
+    width: 80%;
+    height: 100vh;
+    background-color: white;
+    margin: 0 auto;
+    padding: 10px;
+}
+.info {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 1px 3px 1px;
+}
+.task-first {
+    background-color: #e6d8f9;
+}
+.task-second {
+    background-color: #c0dcf5;
+}
+.task-third {
+    background-color: #bbf0f3;
+    white-space: pre;
+}
+.task-fifth {
+    background-color: #a1eb94;
+}
+.task-sixth {
+    background-color: #f1bbbb;
+}
