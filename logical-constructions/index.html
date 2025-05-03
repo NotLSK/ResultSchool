@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logical constructions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-auth card">
+            <form>
+                <div class="form-input">
+                    <input type="text" id="username" placeholder="Введите логин...">
+                </div>
+                <div class="form-input">
+                    <input type="password" id="password" placeholder="Введите пароль...">
+                </div>
+                <div class="btn-container">
+                    <input class="btn auth-btn" type="submit" value="Отправить">
+                </div>        
+            </form>
+        </div>
+
+        <div class="test card">
+            <h2>Тест</h2>
+            <div class="question">
+                <label for="q1">Сколько будет 2 + 2? </label>
+                <input type="number" id="q1" placeholder="Ваш ответ">
+                <span class="correct1"></span>
+            </div>
+            <div class="question">
+                <label for="q2">Сколько будет 2 * 2? </label>
+                <input type="number" id="q2" placeholder="Ваш ответ">
+                <span class="correct2"></span>
+            </div>
+            <div class="question">
+                <label for="q3">У Пети было 5 яблок. 3 из них он съел, 1 отдал другу. Сколько яблок у Пети осталось? </label>
+                <input type="number" id="q3" placeholder="Ваш ответ">
+                <span class="correct3"></span>
+            </div>
+            <div class="question">
+                <label for="q4">У Маши было 10 конфет. 2 она съела, 1 отдала другу. После мама дала Маше еще 5 конфет. Сколько в итоге конфет осталось у Маши? </label>
+                <input type="number" id="q4" placeholder="Ваш ответ">
+                <span class="correct4"></span>
+            </div>
+            <div class="question">
+                <label for="q5">Сколько будет 2 + 2 * 2? </label>
+                <input type="number" id="q5" placeholder="Ваш ответ">
+                <span class="correct5"></span>
+            </div>
+            <div class="btn-container">
+                <button class="btn check-btn">Проверить ответы</button>
+            </div>
+            <div class="test-result"></div>
+        </div>
+
+        <div class="counter card"></div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
