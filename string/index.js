@@ -37,7 +37,7 @@ const slicedString = userString.slice(startSliceIndex, endSliceIndex);
 //Задание №6
 const userText = prompt('Введите текст').trim();
 const fragmentOfText = prompt('Введите слово из текста').trim();
-let slicedUserText;
+let slicedUserText = '';
 if (userText.includes(fragmentOfText)) {
     const indexOfFragment = userText.indexOf(fragmentOfText);
     slicedUserText = userText.slice(0, indexOfFragment);
