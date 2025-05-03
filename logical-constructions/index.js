@@ -55,7 +55,6 @@ checkButton.addEventListener('click', (e) => {
 })
 
 //Задание №3.
-
 function task3() {
     confirm('JavaScript появился в 1995 году?') ? alert('Верно!') : alert('Неверно! JS появился в 1995 году');
     confirm('Спецификация JavaScript называется ECMAScript?') ? alert('Верно!') : alert('Неверно! Спецификация JS называется ECMAScript');
@@ -64,7 +63,6 @@ function task3() {
 // task3();
 
 //Задание №4.
-
 function task4() {
     for (let i = 0; i < 3; i += 1) {
         let newStudent = prompt('Введите имя нового студента! for');
@@ -97,7 +95,6 @@ function task4() {
 // task4();
 
 //Задание №5.
-
 const counter = document.querySelector('.counter');
 let sum = 0;
 for(let i = 0; i <= 100; i++) {
