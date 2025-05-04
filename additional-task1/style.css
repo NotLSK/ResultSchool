@@ -1,0 +1,63 @@
+* {
+    padding: 0;
+    margin: 0;
+    font: normal normal 16px 'Arial', 'Verdana', sans-serif;
+}
+
+.wrapper {
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 10px;
+}
+.discount {
+    margin-top: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    background-color: #e0f1ff;
+    display: flex;
+    justify-content: center;
+}
+.discount-wrapper {
+    width: 70%;
+}
+.discount-input {
+    margin-bottom: 10px;
+}
+
+.discount-input label {
+    display: block;
+    padding: 5px 0;
+}
+
+.discount-input input {
+    outline: none;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+.btn-container {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.bill-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 7px;
+}
+
+.bill-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
