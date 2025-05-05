@@ -40,6 +40,10 @@ billButton.addEventListener('click', () => {
 //Задание №3.
 const userPassword = prompt('Введите пароль').trim();
 
+// match это метод строки, принимает регулярное выражение как аргумент, возвращает массив или null
+// test вызывается на регулярном выражении, осуществляет проверку наличия совпадения, возвращает true или false
+// если нужно проверить всю строку, можем использовать флаг g в регулярке, например /[A-Z]/g
+
 // userPassword.match(/[A-Z]/) && userPassword.match(/\d/)
 if ((userPassword.length > 3 || userPassword.length < 30) && /[A-Z]/.test(userPassword) && /\d/.test(userPassword)) {
     console.log('Пароль валидный.  Добро пожаловать в аккаунт!');
