@@ -38,7 +38,6 @@ billButton.addEventListener('click', () => {
 })
 
 //Задание №3.
-
 const userPassword = prompt('Введите пароль').trim();
 
 // userPassword.match(/[A-Z]/) && userPassword.match(/\d/)
