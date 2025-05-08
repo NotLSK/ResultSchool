@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Arrays</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="coffe-price">
+                <h4>Цены в магазине поднялись!</h4>
+                <ul class="price-list" style="list-style-type: none;"></ul>
+            </div>
+            <div class="search-container">
+                <div class="search">
+                    <div class="coffe-input-container">
+                        <input type="text" id="coffeeName" placeholder="Найти кофе">
+                        <button class="btn search-btn">Поиск</button>
+                    </div>
+                </div>
+                <div class="search-result"></div>
+            </div>
+        </div>
+        <div class="rating">
+            <div class="rating-input">
+                <label for="rate">Оцените нас!</label>
+                <input type="number" id="rate" max="10" min="1" placeholder="Введите вашу оценку от 1 до 10">
+            </div>
+            <div class="btn-container">
+                <button class="btn rating-btn">Оценить</button>
+            </div>
+            <div class="rating-result"></div>
+        </div>
+    </div>
+    
+    <script src="array.js"></script>
+</body>
+</html>
