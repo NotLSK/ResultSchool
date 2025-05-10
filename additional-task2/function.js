@@ -42,7 +42,7 @@ function checkTextOnErrorSymbol(text, errorSymbol, succesCallback, errorCallback
         //     index = text.indexOf(errorSymbol, index + 1);
         // }
     } else {
-        showSuccessMessage(`В данном тексте нет запрещенных символов`);
+        succesCallback(`В данном тексте нет запрещенных символов`);
     }
 }
 
