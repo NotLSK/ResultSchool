@@ -142,7 +142,7 @@ console.log("Задание 3");
 function createMatrix(n, m) {
     if (!Number.isInteger(n) || !Number.isInteger(m) || n < 1 || m < 1) {
         console.log('Неправильные размеры матрицы');
-        return false;
+        return null;
     } else {
         let Matrix = [];
         for(let i = 0; i < n; i++) {
