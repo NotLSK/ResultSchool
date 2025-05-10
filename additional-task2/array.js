@@ -76,7 +76,8 @@ function getMathResult(expression) {
     if (!Array.isArray(expression) ||
         expression.length < 3) {
         return console.log('Ошибка');
-    } else if (expression.length > 3) {
+    } 
+    else if (expression.length > 3) {
         let normalizedExpression = expression.filter((item) => {
             return (!isNaN(Number(item)) || regex.test(item));
         });
@@ -93,12 +94,15 @@ function getMathResult(expression) {
         } else {
             return console.log('Ошибка');
         }
+        
         console.log(calc(...normalizedExpression));
         return calc(...normalizedExpression);
-    } else if(regex.test(expression[1])) {
+    } 
+    else if(regex.test(expression[1])) {
         console.log(calc(...expression));
         return calc(...expression);
-    } else {
+    } 
+    else {
         return console.log('Ошибка');
     }
 }
