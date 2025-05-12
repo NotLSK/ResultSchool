@@ -101,7 +101,7 @@ console.log(frontStudent, updatedStudent);
 //Задание №5
 
 function sum(...args) {
-    const result = args.reduce((a, i) => a + i, 0);
+    const result = args.reduce((digit, i) => digit + i, 0);
     return result;
 }
 
