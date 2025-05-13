@@ -3,6 +3,7 @@
 function getDateFormat(date, separator = '.') {
     // const day = date.getDate() >= 10 ? date.getDate() : `0${date.getDate()}`;
     // const month = (date.getMonth() + 1) >= 10 ? date.getMonth() + 1 : `0${date.getMonth() + 1}`;
+    /* padStart(targetLength, padString) - заполняет текущую строку другой строкой так, что итоговая строка достигает заданной длины.*/
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');;
     const year = date.getFullYear();
