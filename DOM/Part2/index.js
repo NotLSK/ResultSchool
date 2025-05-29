@@ -75,7 +75,6 @@ function handleDeleteTask(e) {
 }
 
 function deleteTask() {
-    console.log(allTasks)
     const taskId = getDeleteModal().dataset.taskId;
     tasks.splice(tasks.findIndex(task => task.id === taskId), 1);
     document.querySelector(`[data-task-id='${taskId}']`).remove();
