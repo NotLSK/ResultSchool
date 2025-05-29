@@ -18,7 +18,7 @@ const tasks = [
 
 renderTasks(tasks);
 createDeleteModal();
-bind();
+bindEvents();
 
 function getDeleteModal() {
     const modal = document.querySelector('.modal-overlay');
@@ -48,7 +48,7 @@ function renderTasks(currentTasks) {
     })
 }
 
-function bind() {
+function bindEvents() {
     const taskForm = getTaskForm();
     const taskList = getTaskList();
     const modalCancelButton = document.querySelector('.delete-modal__cancel-button');
