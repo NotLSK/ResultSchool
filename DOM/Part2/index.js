@@ -54,6 +54,7 @@ function bindEvents() {
     const modalCancelButton = document.querySelector('.delete-modal__cancel-button');
     const modalDeleteButton = document.querySelector('.delete-modal__confirm-button');
 
+    document.body.addEventListener('keyup', changeDarkTheme);
     modalDeleteButton.addEventListener('click', deleteTask);
     modalCancelButton.addEventListener('click', cancelDelete);
     taskForm.addEventListener('submit', handleTaskFormSubmit);
@@ -198,8 +199,6 @@ function createTaskElement(task) {
 
     return taskItem;
 }
-
-document.body.addEventListener('keyup', changeDarkTheme);
 
 function changeDarkTheme(e) {
     if (e.key === 'Tab') {
