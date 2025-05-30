@@ -197,6 +197,12 @@ function createTaskElement(task) {
     deleteButton.textContent = 'Удалить';
     taskItemContainer.append(deleteButton);
 
+    //если активна тёмная тема, чтобы задачи добавлялись с нужным стилем
+    if (document.body.classList.contains('dark-theme')) {
+        taskItem.style.color = '#ffffff';
+        deleteButton.style.border = '1px solid #ffffff';
+    }
+
     return taskItem;
 }
 
