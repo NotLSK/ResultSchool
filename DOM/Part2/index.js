@@ -61,6 +61,7 @@ function bindEvents() {
     taskList.addEventListener('click', handleDeleteTask);
 }
 
+// Кнопка "удалить" и модальое окно
 function handleDeleteTask(e) {
     const isDeleteButton = e.target.classList.contains('task-item__delete-button');
 
@@ -109,6 +110,7 @@ function createDeleteModal() {
     document.body.innerHTML += modal;
 }
 
+// Добавление таски на кнопку и валидация
 function handleTaskFormSubmit(e) {
     e.preventDefault();
     const { target } = e;
@@ -157,6 +159,7 @@ const createErrorSpan = (text) => {
     taskForm.append(span);
 }
 
+// Создание таски
 function createTaskObject(completed, text) {
     return { id: Date.now(), completed, text }
 }
@@ -206,6 +209,7 @@ function createTaskElement(task) {
     return taskItem;
 }
 
+// Свап на тёмную/светлую тему
 function changeDarkTheme(e) {
     if (e.key === 'Tab') {
         const body = document.body;
