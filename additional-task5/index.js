@@ -2,10 +2,12 @@ class CustomSelect {
     #id
     #options
     #currentSelectedOption
+    #onListClick
 
     constructor(id, options) {
         this.#id = id;
         this.#options = options;
+        this.#onListClick = this.#handleClickListElement.bind(this);
     }
 
     get selectedValue() {
@@ -49,7 +51,7 @@ class CustomSelect {
 
     #bindListEvents(ul, button) {
         button.addEventListener('click', this.#handleClickDropdownList);
-        ul.addEventListener('click', this.#handleClickListElement.bind(this));
+        ul.addEventListener('click', this.#onListClick);
     }
 
     #handleClickDropdownList(e) {
