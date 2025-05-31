@@ -69,7 +69,6 @@ class CustomSelect {
 
             const text = document.querySelector(`.select-dropdown__text--${this.#id}`);
             text.textContent = this.#currentSelectedOption.text;
-
         }
     }
 
@@ -79,7 +78,8 @@ class CustomSelect {
     }
 
     #selectElement(target) {
-        const allElements = document.querySelectorAll('.select-dropdown__list-item');
+        const div = target.closest('.select-dropdown');
+        const allElements = div.querySelectorAll('.select-dropdown__list-item');
         allElements.forEach(element => {
             element.classList.remove('selected');
         })
