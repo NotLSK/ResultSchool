@@ -1,22 +1,3 @@
-// function renderAlbums() {
-//     toggleLoader();
-//     const albums = getAlbums();
-//     albums
-//         .then(albums => {
-//             const dataContainer = getDataContainer();
-//             albums.forEach(album => {
-//                 const albumElemnt = createAlbumElement(album.title);
-//                 dataContainer.append(albumElemnt);
-//             });
-//         })
-//         .catch(error => {
-//             console.error(error);
-//         })
-//         .finally(() => {
-//             toggleLoader();
-//         })
-// }
-
 async function renderAlbums() {
     toggleLoader();
 
