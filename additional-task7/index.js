@@ -1,25 +1,39 @@
 const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
-const COMMENTS_URL = `https://jsonplaceholder.typicode.com/comments?postId=`;
+const COMMENTS_URL = `https://jsonplaceholder.typicode.com/coments?postId=`;
 
 async function renderPost(postId) {
     const postContainer = document.querySelector('.post');
 
-    const post = await getPostsById(postId);
+    try {
+        const post = await getPostsById(postId);
 
-    postContainer.append(
-        createPostHeader(post),
-        createPostText(post),
-        createCommentsTitle()
-    )
+        if (!post) {
+            throw new Error('Ошибка при получении данных о посте');
+        }
 
-    const comments = await getCommnetsByPostId(postId);
-    const commentsContainer = createCommentsContainer();
+        postContainer.append(
+            createPostHeader(post),
+            createPostText(post),
+            createCommentsTitle()
+        )
 
-    comments.forEach(comment => {
-        commentsContainer.append(createComment(comment));
-    });
+        const comments = await getCommnetsByPostId(postId);
 
-    postContainer.append(commentsContainer);
+        if (!comments) {
+            throw new Error('Ошибка при получении комментариев к посту');
+        }
+
+        const commentsContainer = createCommentsContainer();
+
+        comments.forEach(comment => {
+            commentsContainer.append(createComment(comment));
+        });
+
+        postContainer.append(commentsContainer);
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
 
 async function getPostsById(postId) {
