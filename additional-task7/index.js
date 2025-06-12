@@ -1,5 +1,5 @@
 const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
-const COMMENTS_URL = `https://jsonplaceholder.typicode.com/coments?postId=`;
+const COMMENTS_URL = `https://jsonplaceholder.typicode.com/comments?postId=`;
 
 async function renderPost(postId) {
     const postContainer = document.querySelector('.post');
