@@ -1,0 +1,21 @@
+{
+  "name": "task1-2_rollup",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "start": "rollup -c -w"
+  },
+  "keywords": [],
+  "author": "Egor Razzorenov",
+  "license": "ISC",
+  "description": "Rollup Bundler",
+  "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-image": "^3.0.3",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-serve": "^3.0.0",
+    "rollup-plugin-styles": "^4.0.0"
+  }
+}
