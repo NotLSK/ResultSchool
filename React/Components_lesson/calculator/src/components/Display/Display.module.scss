@@ -1,0 +1,63 @@
+$sign_color: #d86901;
+$answer-color: #8e9bff;
+
+.display {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	height: 10rem;
+	padding: 1rem;
+
+	.answer-container {
+		display: flex;
+		justify-content: flex-end;
+		padding-right: 1rem;
+	}
+}
+
+.expression-wrapper {
+	display: flex;
+	flex: 1;
+	align-items: flex-end;
+	flex-direction: column-reverse;
+	overflow-y: auto;
+
+	// Firefox 
+	scrollbar-width: thin;
+	scrollbar-color: transparent transparent;
+
+	// Chrome, Safari, Edge, Opera
+	&::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: transparent;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.expression {
+		display: flex;
+		flex-wrap: wrap;
+		flex: none;
+		justify-content: flex-end;
+		align-content: flex-end;
+		font-size: 2rem;
+	}
+}
+
+.operator {
+	color: $sign_color;
+}
+
+.answer {
+	font-size: 3rem;
+	color: $answer-color;
+}
+
+.sign {
+	color: $sign_color;
+}

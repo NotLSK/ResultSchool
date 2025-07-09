@@ -1,0 +1,30 @@
+$digit-background: #2F3747;
+$border-radius: 1em;
+$operations-backgorund: #6a05b7;
+
+.button {
+	font-size: 1.5rem;
+	color: inherit;
+	width: 100%;
+	height: 100%;
+	background-color: $digit-background;
+	border: none;
+	box-shadow: 0px 0px 1px 0px gray;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+.zero {
+	grid-column: span 3;
+	border-bottom-left-radius: var(--border-radius);
+}
+
+.operation {
+	background-color: $operations-backgorund;
+}
+
+.operation:last-child {
+	border-bottom-right-radius: var(--border-radius);
+}
