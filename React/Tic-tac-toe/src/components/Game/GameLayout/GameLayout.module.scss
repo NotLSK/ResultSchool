@@ -1,0 +1,24 @@
+$button-color: #08ffbd;
+
+.container {
+	display: flex;
+	justify-content: center;
+	place-items: center;
+	flex-direction: column;
+}
+
+.button {
+	font-size: 1.5rem;
+	padding: 20px 40px;
+	border: 1px solid $button-color;
+	color: $button-color;
+	background-color: transparent;
+	border-radius: 1000px;
+
+	&:hover {
+		cursor: pointer;
+		color: black;
+		background-color: $button-color;
+		transition: all 0.35s;
+	}
+}

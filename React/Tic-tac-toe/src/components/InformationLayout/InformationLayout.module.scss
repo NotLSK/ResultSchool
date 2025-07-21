@@ -1,0 +1,19 @@
+$O-color: #ff1b1b;
+$X-color: #0ab700;
+
+.result {
+	font-size: 2rem;
+
+	span {
+		font-size: 2.5rem;
+		font-weight: 500;
+	}
+}
+
+.X {
+	color: $X-color;
+}
+
+.O {
+	color: $O-color;
+}
