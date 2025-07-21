@@ -1,6 +1,6 @@
 import styles from './InformationLayout.module.scss'
 
-import { valueCheck } from '../../utils'
+import { valueCheck } from '../../../utils'
 
 export const InformationLayout = ({ currentPlayer, isDraw, isGameOver }) => {
 

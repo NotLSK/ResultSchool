@@ -1,4 +1,4 @@
-import { InformationLayout } from "../InformationLayout/InformationLayout"
+import { InformationLayout } from "./InformationLayout/InformationLayout"
 
 
 export const Information = ({ currentPlayer, isDraw, isGameOver }) => {
