@@ -2,7 +2,8 @@
 	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
-	background-color: #1f2332;
+	--main-background-color: #1f2332;
+	--text-color: #ffffff;
 }
 
 body {
@@ -10,6 +11,6 @@ body {
 	padding: 0;
 	max-width: 1024px;
 	min-height: 100vh;
-	background-color: var(--background-color);
-	color: white;
+	background-color: var(--main-background-color);
+	color: var(--text-color)
 }

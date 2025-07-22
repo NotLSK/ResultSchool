@@ -10,15 +10,12 @@ export const Game = () => {
 	const [isDraw, setIsDraw] = useState(false);
 	const [currentPlayer, setCurrentPlayer] = useState('X');
 
-
-
 	const handleReset = () => {
 		setField(fieldInit);
 		setIsDraw(false);
 		setIsGameOver(false);
 		setCurrentPlayer('X');
 	}
-
 
 	return (
 		<GameLayout

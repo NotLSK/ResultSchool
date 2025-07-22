@@ -9,8 +9,7 @@ export const FieldLayout = ({ field, currentPlayer, onClick, isGameOver }) => {
 				return <div
 					key={item.id}
 					className={`${styles.cell} ${valueCheck(item.value, styles)}`}
-					onClick={item.value === '' || !isGameOver ? () => onClick(item.id, currentPlayer) : null}
-					style={{ 'disabled': true }}
+					onClick={item.value === '' && !isGameOver ? () => onClick(item.id, currentPlayer) : null}
 				>
 					{item.value}
 				</div>

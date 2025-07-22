@@ -1,16 +1,15 @@
 import PropTypes from 'prop-types';
 
 import styles from './GameLayout.module.scss';
-
-import { Information } from '../../Information/Information';
 import { Field } from '../../Field/Field';
+import { InformationLayout } from '../../InformationLayout/InformationLayout';
 
 export const GameLayout = ({ field, currentPlayer, isDraw, isGameOver, setField, setCurrentPlayer, setIsDraw, setIsGameOver, onRestart }) => {
 
 	return (
 		<div className={styles.container}>
 			<h1>Крестики-нолики</h1>
-			<Information
+			<InformationLayout
 				currentPlayer={currentPlayer}
 				isDraw={isDraw}
 				isGameOver={isGameOver}
