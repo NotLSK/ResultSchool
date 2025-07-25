@@ -1,0 +1,16 @@
+:root {
+	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	font-size: 18px;
+	--main-background-color: #e6e6e6;
+	--text-color: #000;
+}
+
+body {
+	margin: 0 auto;
+	padding: 0;
+	height: 100vh;
+	background-color: var(--main-background-color);
+	color: var(--text-color)
+}
