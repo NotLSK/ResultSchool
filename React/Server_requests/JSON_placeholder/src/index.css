@@ -1,0 +1,15 @@
+:root {
+	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	font-size: 18px;
+	--text-color: #c9d1d9;
+}
+
+body {
+	margin: 0 auto;
+	padding: 0;
+	height: 100vh;
+	background: linear-gradient(to left, #2c2c2c 50%, #0d1117 100%);
+	color: var(--text-color);
+}

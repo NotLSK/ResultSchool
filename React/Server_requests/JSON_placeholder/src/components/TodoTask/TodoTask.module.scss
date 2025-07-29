@@ -1,0 +1,32 @@
+$task: #ffffff1a;
+
+.task {
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+	border-top: 1px solid $task;
+	line-height: 1.5rem;
+}
+
+.number {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 700;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.completed {
+	background-color: #005219;
+}
+
+.uncompleted {
+	background-color: #851200;
+}
+
+.text {
+	padding-left: 20px;
+	font-size: 1.15rem;
+}
