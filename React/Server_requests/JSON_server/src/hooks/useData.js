@@ -1,17 +1,18 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const useData = () => {
 	const [data, setData] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState('');
 
-	const getTasks = async (filter = '', sort = false) => {
-		// const loaderStart = setTimeout(() => {
-		setIsLoading(true)
-		// }, 300)
+	const getTasks = useCallback(async (filter = '', sort = false) => {
+		const loaderStart = setTimeout(() => {
+			setIsLoading(true)
+		}, 300)
 		try {
-			const response = await fetch('http://localhost:3000/todos');
+			const response = await fetch(API_URL);
 
 			if (!response.ok) {
 				throw new Error('Failed to load task list. The server responded with an error.');
@@ -26,20 +27,20 @@ export const useData = () => {
 			if (sort) {
 				todoTasks = todoTasks.sort((a, b) => a.title.localeCompare(b.title));
 			}
-			console.log(todoTasks)
+
 			setData(todoTasks);
 		} catch (err) {
 			setError(err.message);
 		} finally {
 			setIsLoading(false)
-			// clearTimeout(loaderStart)
+			clearTimeout(loaderStart)
 		}
-	}
+	}, []);
 
 
 	const getTaskById = async (id) => {
 		try {
-			const response = await fetch(`http://localhost:3000/todos/${id}`);
+			const response = await fetch(`${API_URL}/${id}`);
 
 			if (!response.ok) {
 				throw new Error(`Failed to fetch task with ID: ${id}. The server responded with an error.`);
@@ -54,7 +55,7 @@ export const useData = () => {
 	const addNewTask = async (payload) => {
 		setIsLoading(true);
 		try {
-			const response = await fetch('http://localhost:3000/todos', {
+			const response = await fetch(API_URL, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json;charset=utf-8' },
 				body: JSON.stringify(payload),
@@ -76,7 +77,7 @@ export const useData = () => {
 	const updateTask = async (id, payload) => {
 		setIsLoading(true);
 		try {
-			const response = await fetch(`http://localhost:3000/todos/${id}`, {
+			const response = await fetch(`${API_URL}/${id}`, {
 				method: 'PUT',
 				headers: { 'Content-Type': 'application/json;charset=utf-8' },
 				body: JSON.stringify(payload),
@@ -98,7 +99,7 @@ export const useData = () => {
 
 	const deleteTask = async (id) => {
 		try {
-			const response = await fetch(`http://localhost:3000/todos/${id}`, {
+			const response = await fetch(`${API_URL}/${id}`, {
 				method: 'DELETE',
 			});
 
@@ -116,7 +117,7 @@ export const useData = () => {
 
 	useEffect(() => {
 		getTasks();
-	}, [])
+	}, [getTasks])
 
 	return {
 		data,

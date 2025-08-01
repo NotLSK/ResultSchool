@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useData } from '../../hooks/useData';
+import { useDebounce } from '../../hooks/useDebounce';
 
 import { TodoTask } from '../TodoTask/TodoTask';
 import { HeaderTools } from '../HeaderTools/HeaderTools';
@@ -12,6 +13,8 @@ export const TaskList = () => {
 	const [modalTrigger, setModalTrigger] = useState(false);
 	const [modalMode, setModalMode] = useState('ADD');
 	const [selectedTaskId, setSelectedTaskId] = useState(null);
+	const [search, setSearch] = useState('');
+	const [isFilterSelected, setIsFilterSelected] = useState(false);
 
 	const {
 		data: tasks,
@@ -25,6 +28,17 @@ export const TaskList = () => {
 	} = useData();
 
 
+	const handleFilter = () => {
+		setIsFilterSelected(!isFilterSelected);
+		getTasks(search.trim().toLowerCase(), !isFilterSelected)
+	}
+
+	const debounce = useDebounce(getTasks, 1000)
+
+	const handleSearch = (value) => {
+		setSearch(value)
+		debounce(value.trim().toLowerCase(), isFilterSelected)
+	}
 
 	const renderTasks = () => {
 		if (isLoading) {
@@ -70,7 +84,13 @@ export const TaskList = () => {
 			/>}
 			<div className={styles.header}>
 				<h2>Список задач</h2>
-				<HeaderTools onOpenModalClick={() => toggleModal('ADD')} getTasks={getTasks} />
+				<HeaderTools
+					onOpenModalClick={() => toggleModal('ADD')}
+					search={search}
+					isFilterSelected={isFilterSelected}
+					handleFilter={handleFilter}
+					handleSearch={handleSearch}
+				/>
 			</div>
 			<div className={styles.taskList}>
 				{renderTasks()}

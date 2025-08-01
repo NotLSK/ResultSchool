@@ -2,28 +2,8 @@ import styles from './HeaderTools.module.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort, faPlus } from "@fortawesome/free-solid-svg-icons";
 
-import { useEffect, useState } from 'react';
-import { useDebounce } from '../../hooks/useDebounce';
 
-export const HeaderTools = ({ onOpenModalClick, getTasks }) => {
-
-	const [search, setSearch] = useState('');
-	const [isFilterSelected, setIsFilterSelected] = useState(false);
-	const debounce = useDebounce(getTasks, 300)
-
-
-	const handleFilter = () => {
-		setIsFilterSelected(!isFilterSelected);
-	}
-
-	useEffect(() => {
-		getTasks(search.trim().toLowerCase(), isFilterSelected);
-	}, [isFilterSelected])
-
-	const handleSearch = (value) => {
-		setSearch(value)
-		debounce(value.trim().toLowerCase())
-	}
+export const HeaderTools = ({ onOpenModalClick, search, isFilterSelected, handleFilter, handleSearch }) => {
 
 	return (
 		<div className={styles.tools}>
