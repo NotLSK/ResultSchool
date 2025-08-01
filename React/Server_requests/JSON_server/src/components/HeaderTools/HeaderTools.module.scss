@@ -1,0 +1,55 @@
+$input-color: #ffffffcc;
+$input-background-color: #ffffff1a;
+$input-placeholder-color: #ffffff80;
+$input-focus-outline: #ffffff99;
+
+.tools {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+
+	svg {
+		font-size: 1.125rem;
+		margin-left: 10px;
+	}
+
+	svg:hover {
+		color: #bef300;
+	}
+
+	.filter {
+		color: #0dff00;
+
+		svg:hover {
+			opacity: 0.7;
+		}
+	}
+
+	.search {
+		display: block;
+		width: 80%;
+
+		box-sizing: border-box;
+		line-height: 2.5em;
+		padding-left: 20px;
+		outline: none;
+		border: none;
+		border-radius: 20px;
+		background-color: $input-background-color;
+		color: $input-color;
+
+		&:focus {
+			border-color: transparent;
+			outline: 2px solid $input-focus-outline;
+		}
+
+		&::placeholder {
+			color: $input-placeholder-color;
+		}
+	}
+
+
+
+
+}

@@ -1,0 +1,104 @@
+$background-color: #383838;
+$border: #fffffe4d;
+$form-field-background: #ffffff1a;
+
+.backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #0000004f;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+
+}
+
+.modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 400px;
+	background-color: $background-color;
+	border: 1px solid $border;
+	border-radius: 16px;
+	z-index: 11;
+
+	h3 {
+		text-align: center;
+		margin-bottom: 0;
+	}
+}
+
+.formField {
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+
+	label {
+		width: max-content;
+	}
+
+	input {
+		line-height: 1.5rem;
+	}
+
+	input,
+	textarea {
+		background-color: $form-field-background;
+		color: white;
+		outline: none;
+		border: none;
+		padding-left: 10px;
+		font: inherit;
+	}
+
+	input:focus,
+	textarea:focus {
+		border-color: transparent;
+		outline: 2px solid #ffffff99;
+	}
+
+	input::placeholder,
+	textarea::placeholder {
+		color: #ffffff80;
+	}
+
+	textarea {
+		resize: vertical;
+		height: 5rem;
+	}
+}
+
+.buttons {
+	display: flex;
+	justify-content: center;
+	gap: 4rem;
+	margin: 1rem;
+
+	button {
+		height: 40px;
+		width: 120px;
+		border-radius: 20px;
+		border: none;
+		font: inherit;
+		color: inherit;
+		font-weight: 600;
+	}
+
+	button:hover {
+		opacity: 0.7;
+	}
+
+	.add {
+		background-color: #1c8b00;
+	}
+
+	.close {
+		background-color: #565656;
+	}
+
+	.delete {
+		background-color: #a90000;
+	}
+}
