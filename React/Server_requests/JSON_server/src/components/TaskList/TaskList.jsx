@@ -85,7 +85,7 @@ export const TaskList = () => {
 			<div className={styles.header}>
 				<h2>Список задач</h2>
 				<HeaderTools
-					onOpenModalClick={() => toggleModal('ADD')}
+					openModal={() => toggleModal('ADD')}
 					search={search}
 					isFilterSelected={isFilterSelected}
 					handleFilter={handleFilter}

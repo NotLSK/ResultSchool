@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 
-export const HeaderTools = ({ onOpenModalClick, search, isFilterSelected, handleFilter, handleSearch }) => {
+export const HeaderTools = ({ openModal, search, isFilterSelected, handleFilter, handleSearch }) => {
 
 	return (
 		<div className={styles.tools}>
@@ -18,7 +18,7 @@ export const HeaderTools = ({ onOpenModalClick, search, isFilterSelected, handle
 			/>
 			<div className={styles.actions}>
 				<span title='Отсортировать' className={isFilterSelected ? styles.filter : null} onClick={handleFilter}><FontAwesomeIcon icon={faSort} /></span>
-				<span title='Добавить задачу' onClick={onOpenModalClick}><FontAwesomeIcon icon={faPlus} /></span>
+				<span title='Добавить задачу' onClick={openModal}><FontAwesomeIcon icon={faPlus} /></span>
 			</div>
 		</div>
 	)

@@ -53,7 +53,6 @@ export const useData = () => {
 	}
 
 	const addNewTask = async (payload) => {
-		setIsLoading(true);
 		try {
 			const response = await fetch(API_URL, {
 				method: 'POST',
@@ -69,13 +68,10 @@ export const useData = () => {
 			setData(prev => [...prev, newTask]);
 		} catch (err) {
 			setError(err.message)
-		} finally {
-			setIsLoading(false);
 		}
 	}
 
 	const updateTask = async (id, payload) => {
-		setIsLoading(true);
 		try {
 			const response = await fetch(`${API_URL}/${id}`, {
 				method: 'PUT',
@@ -92,8 +88,6 @@ export const useData = () => {
 			setData(prev => prev.map(task => task.id === id ? updatedTask : task));
 		} catch (err) {
 			setError(err.message)
-		} finally {
-			setIsLoading(false);
 		}
 	}
 
