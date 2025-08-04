@@ -30,14 +30,14 @@ export const TaskList = () => {
 
 	const handleFilter = () => {
 		setIsFilterSelected(!isFilterSelected);
-		getTasks(search.trim().toLowerCase(), !isFilterSelected)
+		getTasks(search.trim(), !isFilterSelected)
 	}
 
 	const debounce = useDebounce(getTasks, 1000)
 
 	const handleSearch = (value) => {
 		setSearch(value)
-		debounce(value.trim().toLowerCase(), isFilterSelected)
+		debounce(value.trim(), isFilterSelected)
 	}
 
 	const renderTasks = () => {

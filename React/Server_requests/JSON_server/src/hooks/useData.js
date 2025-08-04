@@ -12,7 +12,10 @@ export const useData = () => {
 			setIsLoading(true)
 		}, 300)
 		try {
-			const response = await fetch(API_URL);
+
+			const filterPath = `?title_like=${filter}`;
+			const sortPath = sort ? '&_sort=title&_order=asc' : '';
+			const response = await fetch(API_URL + filterPath + sortPath);
 
 			if (!response.ok) {
 				throw new Error('Failed to load task list. The server responded with an error.');
@@ -20,13 +23,13 @@ export const useData = () => {
 
 			let todoTasks = await response.json();
 
-			if (filter) {
-				todoTasks = todoTasks.filter((task) => task.title.toLowerCase().includes(filter))
-			}
+			// if (filter) {
+			// 	todoTasks = todoTasks.filter((task) => task.title.toLowerCase().includes(filter))
+			// }
 
-			if (sort) {
-				todoTasks = todoTasks.sort((a, b) => a.title.localeCompare(b.title));
-			}
+			// if (sort) {
+			// 	todoTasks = todoTasks.sort((a, b) => a.title.localeCompare(b.title));
+			// }
 
 			setData(todoTasks);
 		} catch (err) {
