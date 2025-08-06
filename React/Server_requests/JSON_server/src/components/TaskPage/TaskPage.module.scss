@@ -1,0 +1,61 @@
+$border: #fffffe4d;
+$form-field-background: #ffffff1a;
+
+.taskForm {
+	width: 100%;
+
+	h2 {
+		text-align: center;
+	}
+}
+
+.formBody {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.formField {
+	display: flex;
+	flex-direction: column;
+	margin: 15px;
+
+	label {
+		width: max-content;
+		margin-bottom: 5px;
+	}
+
+	input {
+		line-height: 1.5rem;
+	}
+
+	input,
+	textarea {
+		background-color: $form-field-background;
+		color: #bdbdbd;
+		outline: none;
+		border: none;
+		padding-left: 10px;
+		font: inherit;
+	}
+
+	input:focus,
+	textarea:focus {
+		border-color: transparent;
+		outline: 2px solid #ffffff99;
+	}
+
+	input::placeholder,
+	textarea::placeholder {
+		color: #ffffff80;
+	}
+
+	textarea {
+		resize: vertical;
+		height: 5rem;
+	}
+}
+
+input.edit,
+textarea.edit {
+	color: white;
+}

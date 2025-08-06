@@ -1,43 +1,25 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import styles from '../Modal.module.scss'
 import Select from 'react-select';
-import { selectStyles, completedOptions } from './Select';
+import { selectStyles, completedOptions } from '../../../services/Select';
 
 
-export const TaskForm = ({ closeModal, addNewTask, updateData, mode, taskId, getTask }) => {
+export const AddTaskForm = ({ closeModal, addNewTask }) => {
 
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [completed, setCompleted] = useState(false);
 
-	useEffect(() => {
-		if (mode === 'UPDATE') {
-			getTask(taskId)
-				.then(({ title, description, completed }) => {
-					setTitle(title);
-					setDescription(description);
-					setCompleted(completed);
-				}
-				)
-		}
-	}, [getTask, mode, taskId])
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		switch (mode) {
-			case 'ADD':
-				addNewTask({ title, description, completed });
-				break;
-			case 'UPDATE':
-				updateData(taskId, { title, description, completed })
-		}
+		addNewTask({ title, description, completed });
 		closeModal();
 	}
 
 	return (
 		<form className={styles.modal} onSubmit={handleSubmit}>
-			<h3>{mode === 'ADD' ? 'Добавить задачу' : 'Редактировать задачу'}</h3>
+			<h3>Добавить задачу</h3>
 			<div className={styles.formBody}>
 				<div className={styles.formField}>
 					<label htmlFor="title">Название задачи</label>
@@ -64,7 +46,7 @@ export const TaskForm = ({ closeModal, addNewTask, updateData, mode, taskId, get
 				<div className={styles.formField}>
 					<label htmlFor="completed">Статус задачи</label>
 					<Select
-						styles={selectStyles}
+						styles={selectStyles()}
 						options={completedOptions}
 						value={completedOptions.find(option => option.value === completed)}
 						onChange={(selectedOption) => setCompleted(selectedOption.value)}
@@ -75,7 +57,7 @@ export const TaskForm = ({ closeModal, addNewTask, updateData, mode, taskId, get
 
 			<div className={styles.buttons}>
 				<button type='button' className={styles.close} onClick={closeModal}>Отмена</button>
-				<button type='submit' className={styles.add}>{mode === 'ADD' ? 'Добавить' : 'Изменить'}</button>
+				<button type='submit' className={styles.add}>Добавить</button>
 			</div>
 		</form>
 	)

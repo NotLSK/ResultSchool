@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useState } from "react"
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -8,6 +8,7 @@ export const useData = () => {
 	const [error, setError] = useState('');
 
 	const getTasks = useCallback(async (filter = '', sort = false) => {
+		setError('')
 		const loaderStart = setTimeout(() => {
 			setIsLoading(true)
 		}, 300)
@@ -23,14 +24,6 @@ export const useData = () => {
 
 			let todoTasks = await response.json();
 
-			// if (filter) {
-			// 	todoTasks = todoTasks.filter((task) => task.title.toLowerCase().includes(filter))
-			// }
-
-			// if (sort) {
-			// 	todoTasks = todoTasks.sort((a, b) => a.title.localeCompare(b.title));
-			// }
-
 			setData(todoTasks);
 		} catch (err) {
 			setError(err.message);
@@ -41,7 +34,8 @@ export const useData = () => {
 	}, []);
 
 
-	const getTaskById = async (id) => {
+	const getTaskById = useCallback(async (id) => {
+		setError('')
 		try {
 			const response = await fetch(`${API_URL}/${id}`);
 
@@ -53,9 +47,10 @@ export const useData = () => {
 		} catch (err) {
 			setError(err.message);
 		}
-	}
+	}, [])
 
 	const addNewTask = async (payload) => {
+		setError('')
 		try {
 			const response = await fetch(API_URL, {
 				method: 'POST',
@@ -75,6 +70,7 @@ export const useData = () => {
 	}
 
 	const updateTask = async (id, payload) => {
+		setError('')
 		try {
 			const response = await fetch(`${API_URL}/${id}`, {
 				method: 'PUT',
@@ -95,6 +91,7 @@ export const useData = () => {
 	}
 
 	const deleteTask = async (id) => {
+		setError('')
 		try {
 			const response = await fetch(`${API_URL}/${id}`, {
 				method: 'DELETE',
@@ -111,10 +108,6 @@ export const useData = () => {
 			setError(err.message);
 		}
 	}
-
-	useEffect(() => {
-		getTasks();
-	}, [getTasks])
 
 	return {
 		data,

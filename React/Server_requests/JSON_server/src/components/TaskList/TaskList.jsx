@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useData } from '../../hooks/useData';
+import { useEffect, useState } from 'react';
 import { useDebounce } from '../../hooks/useDebounce';
 
 import { TodoTask } from '../TodoTask/TodoTask';
@@ -7,25 +6,23 @@ import { HeaderTools } from '../HeaderTools/HeaderTools';
 import { Modal } from '../Modal/Modal';
 
 import styles from './TaskList.module.scss'
+import { AddTaskForm } from '../Modal/AddTaskForm/AddTaskForm';
 
-export const TaskList = () => {
+
+export const TaskList = ({ ...props }) => {
 
 	const [modalTrigger, setModalTrigger] = useState(false);
-	const [modalMode, setModalMode] = useState('ADD');
-	const [selectedTaskId, setSelectedTaskId] = useState(null);
 	const [search, setSearch] = useState('');
 	const [isFilterSelected, setIsFilterSelected] = useState(false);
 
 	const {
-		data: tasks,
+		tasks,
 		isLoading,
 		error,
 		addNewTask,
-		updateTask,
-		getTaskById,
 		deleteTask,
 		getTasks,
-	} = useData();
+	} = props;
 
 
 	const handleFilter = () => {
@@ -54,38 +51,40 @@ export const TaskList = () => {
 		}
 
 		return (tasks.map((task, index) => {
-			return <TodoTask
-				key={task.id}
-				taskId={task.id}
-				taskNumber={index + 1}
-				taskTitle={task.title}
-				isCompleted={task.completed}
-				openModal={toggleModal} />
+			return (
+				<TodoTask
+					key={task.id}
+					taskId={task.id}
+					taskNumber={index + 1}
+					taskTitle={task.title}
+					isCompleted={task.completed}
+					openModal={toggleModal} />
+			)
 		}))
 	}
 
-
-	const toggleModal = (mode, id = null) => {
-		setModalMode(mode);
-		setSelectedTaskId(id);
+	const toggleModal = () => {
 		setModalTrigger(!modalTrigger);
 	}
 
+	useEffect(() => {
+		getTasks();
+	}, [getTasks])
+
 	return (
-		<div className={styles.container}>
-			{modalTrigger && <Modal
-				closeModal={toggleModal}
-				addNewTask={addNewTask}
-				updateData={updateTask}
-				mode={modalMode}
-				taskId={selectedTaskId}
-				getTask={getTaskById}
-				deleteTask={deleteTask}
-			/>}
+		<>
+			{modalTrigger &&
+				<Modal closeModal={toggleModal}>
+					<AddTaskForm
+						addNewTask={addNewTask}
+						deleteTask={deleteTask}
+						closeModal={toggleModal}
+					/>
+				</Modal>}
 			<div className={styles.header}>
 				<h2>Список задач</h2>
 				<HeaderTools
-					openModal={() => toggleModal('ADD')}
+					openModal={() => toggleModal()}
 					search={search}
 					isFilterSelected={isFilterSelected}
 					handleFilter={handleFilter}
@@ -95,6 +94,6 @@ export const TaskList = () => {
 			<div className={styles.taskList}>
 				{renderTasks()}
 			</div>
-		</div>
+		</>
 	)
 }
