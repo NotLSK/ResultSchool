@@ -1,10 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import styles from '../Modal.module.scss'
 
 export const DeleteTask = ({ deleteTask, closeModal, taskId }) => {
 
+	const navigate = useNavigate();
+
 	const handleDelete = () => {
 		deleteTask(taskId)
 		closeModal();
+		navigate('/')
 	}
 
 	return (

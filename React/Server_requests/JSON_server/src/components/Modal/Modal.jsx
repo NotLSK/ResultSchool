@@ -1,18 +1,13 @@
 import { DeleteTask } from './DeleteTask/DeleteTask';
 import styles from './Modal.module.scss'
-import { TaskForm } from './TaskForm/TaskForm';
+import { AddTaskForm } from './AddTaskForm/AddTaskForm';
 
-export const Modal = ({ mode, closeModal, deleteTask, taskId, ...props }) => {
-
-	const isDelete = mode === 'DELETE';
+export const Modal = ({ closeModal, children }) => {
 
 	return (
 		<>
 			<div className={styles.backdrop} onClick={closeModal}></div>
-			{isDelete && <DeleteTask deleteTask={deleteTask} closeModal={closeModal} taskId={taskId} />}
-			{!isDelete && <TaskForm mode={mode} closeModal={closeModal} taskId={taskId} {...props} />}
+			{children}
 		</>
-
-
 	)
 }

@@ -3,13 +3,13 @@ export const completedOptions = [
 	{ value: false, label: 'Не завершена' }
 ]
 
-export const selectStyles = {
+export const selectStyles = (isEdit = false) => ({
 	control: (provided, state) => ({
 		...provided,
 		backgroundColor: '#ffffff1a',
 		border: 'none',
 		boxShadow: state.isFocused ? '0 0 0 2px #ffffff99' : 'none',
-		color: 'inherit',
+		color: 'white',
 		font: 'inherit',
 		minHeight: '38px',
 	}),
@@ -34,6 +34,6 @@ export const selectStyles = {
 
 	singleValue: (provided) => ({
 		...provided,
-		color: 'white',
+		color: isEdit ? 'white' : '#bdbdbd',
 	}),
-};
+});

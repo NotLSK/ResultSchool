@@ -1,0 +1,66 @@
+$action-hover-background: #ffffff2f;
+$button-color-hover: #dadada;
+
+.actions {
+	display: flex;
+	justify-content: center;
+	gap: 100px;
+}
+
+.buttons {
+	display: flex;
+	justify-content: center;
+	gap: 100px;
+
+	button {
+		height: 40px;
+		width: 200px;
+		border-radius: 20px;
+		border: none;
+		font: inherit;
+		color: inherit;
+		font-weight: 600;
+	}
+
+	button:hover {
+		opacity: 0.7;
+	}
+
+	.add {
+		background-color: #1c8b00;
+	}
+
+	.close {
+		background-color: #565656;
+	}
+
+	.update {
+		background-color: #0045b7;
+		color: inherit;
+
+
+		&:hover {
+			background-color: #3b82f6;
+			cursor: pointer;
+		}
+	}
+
+	.delete {
+		background-color: #9d0101;
+		color: inherit;
+
+		&:hover {
+			background-color: #e90000;
+			cursor: pointer;
+		}
+	}
+
+	.back {
+		background-color: #ffffff1a;
+
+		&:hover {
+			opacity: 0.7;
+			cursor: pointer;
+		}
+	}
+}
