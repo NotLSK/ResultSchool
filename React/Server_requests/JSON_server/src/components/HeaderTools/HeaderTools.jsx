@@ -1,9 +1,13 @@
 import styles from './HeaderTools.module.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from 'react';
+import { ModalContext } from '../../contexts/context';
 
 
-export const HeaderTools = ({ openModal, search, isFilterSelected, handleFilter, handleSearch }) => {
+export const HeaderTools = ({ search, isFilterSelected, handleFilter, handleSearch }) => {
+
+	const { toggleModal } = useContext(ModalContext);
 
 	return (
 		<div className={styles.tools}>
@@ -18,7 +22,7 @@ export const HeaderTools = ({ openModal, search, isFilterSelected, handleFilter,
 			/>
 			<div className={styles.actions}>
 				<span title='Отсортировать' className={isFilterSelected ? styles.filter : null} onClick={handleFilter}><FontAwesomeIcon icon={faSort} /></span>
-				<span title='Добавить задачу' onClick={openModal}><FontAwesomeIcon icon={faPlus} /></span>
+				<span title='Добавить задачу' onClick={() => toggleModal('ADD')}><FontAwesomeIcon icon={faPlus} /></span>
 			</div>
 		</div>
 	)

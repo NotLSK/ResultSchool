@@ -23,14 +23,6 @@ export const useData = () => {
 
 			let todoTasks = await response.json();
 
-			// if (filter) {
-			// 	todoTasks = todoTasks.filter((task) => task.title.toLowerCase().includes(filter))
-			// }
-
-			// if (sort) {
-			// 	todoTasks = todoTasks.sort((a, b) => a.title.localeCompare(b.title));
-			// }
-
 			setData(todoTasks);
 		} catch (err) {
 			setError(err.message);

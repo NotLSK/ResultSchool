@@ -1,7 +1,7 @@
 import styles from './TodoTask.module.scss'
 import { Actions } from './Actions/Actions';
 
-export const TodoTask = ({ taskId, taskNumber, taskTitle, isCompleted, openModal }) => {
+export const TodoTask = ({ taskNumber, taskTitle, isCompleted, taskId }) => {
 
 	const isCompletedTask = isCompleted ? styles.completed : styles.uncompleted;
 
@@ -11,7 +11,7 @@ export const TodoTask = ({ taskId, taskNumber, taskTitle, isCompleted, openModal
 				<div className={`${styles.number} ${isCompletedTask}`}>{taskNumber}</div>
 				<div className={styles.text}>{taskTitle}</div>
 			</div>
-			<Actions taskId={taskId} openModal={openModal} />
+			<Actions taskId={taskId} />
 		</div>
 	)
 }

@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useData } from '../../hooks/useData';
+import { useContext, useState } from 'react';
 import { useDebounce } from '../../hooks/useDebounce';
 
 import { TodoTask } from '../TodoTask/TodoTask';
@@ -7,26 +6,15 @@ import { HeaderTools } from '../HeaderTools/HeaderTools';
 import { Modal } from '../Modal/Modal';
 
 import styles from './TaskList.module.scss'
+import { ModalContext, TasksContext } from '../../contexts/context';
 
 export const TaskList = () => {
 
-	const [modalTrigger, setModalTrigger] = useState(false);
-	const [modalMode, setModalMode] = useState('ADD');
-	const [selectedTaskId, setSelectedTaskId] = useState(null);
 	const [search, setSearch] = useState('');
 	const [isFilterSelected, setIsFilterSelected] = useState(false);
 
-	const {
-		data: tasks,
-		isLoading,
-		error,
-		addNewTask,
-		updateTask,
-		getTaskById,
-		deleteTask,
-		getTasks,
-	} = useData();
-
+	const { modalTrigger } = useContext(ModalContext);
+	const { data: tasks, isLoading, error, getTasks } = useContext(TasksContext);
 
 	const handleFilter = () => {
 		setIsFilterSelected(!isFilterSelected);
@@ -59,33 +47,17 @@ export const TaskList = () => {
 				taskId={task.id}
 				taskNumber={index + 1}
 				taskTitle={task.title}
-				isCompleted={task.completed}
-				openModal={toggleModal} />
+				isCompleted={task.completed} />
 		}))
 	}
 
 
-	const toggleModal = (mode, id = null) => {
-		setModalMode(mode);
-		setSelectedTaskId(id);
-		setModalTrigger(!modalTrigger);
-	}
-
 	return (
 		<div className={styles.container}>
-			{modalTrigger && <Modal
-				closeModal={toggleModal}
-				addNewTask={addNewTask}
-				updateData={updateTask}
-				mode={modalMode}
-				taskId={selectedTaskId}
-				getTask={getTaskById}
-				deleteTask={deleteTask}
-			/>}
+			{modalTrigger && <Modal />}
 			<div className={styles.header}>
 				<h2>Список задач</h2>
 				<HeaderTools
-					openModal={() => toggleModal('ADD')}
 					search={search}
 					isFilterSelected={isFilterSelected}
 					handleFilter={handleFilter}
